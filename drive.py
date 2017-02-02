@@ -2,20 +2,13 @@ import argparse
 import base64
 import json
 import os
-
-#import tempfile
-from collections import deque
-#import cv2
-#from math import pi
-#import time
-
 import numpy as np
 import socketio
 import eventlet
 import eventlet.wsgi
 import time
-#import matplotlib as mpl
-#import matplotlib.image as mpimg
+
+from collections import deque
 from scipy.misc import imread, imresize, imsave
 from PIL import Image
 from PIL import ImageOps
@@ -23,9 +16,6 @@ from flask import Flask, render_template
 from io import BytesIO
 import tensorflow as tf
 tf.python.control_flow_ops = tf
-
-#from keras.models import model_from_json
-#from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array
 
 sio = socketio.Server()
 app = Flask(__name__)
@@ -50,19 +40,7 @@ def telemetry(sid, data):
     transformed_image_array = image[:, :, :]
     transformed_image_array = (transformed_image_array.astype(np.float32))
     steering_angle = model.predict(transformed_image_array)
-
-    #image = np.asarray(image)
-    # Change image size
-    #w, h = image.size
-    #crop_image = image[40:140,:,:]
-    #crop_image = image.crop((0, 40, w, h-20))
-    #image_size = (160,320) #(66, 200)
-    #image = imresize(image, size=image_size)
-    #imsave('resized.jpg', image)
-
-    #image_array = np.asarray(image)
-    #transformed_image_array = image[:, :, :]
-    transformed_image_array = (transformed_image_array.astype(np.float32)) #/255. # - 128.) / 128  #127.5 - 1.
+    transformed_image_array = (transformed_image_array.astype(np.float32))
 
     # This model currently assumes that the features of the model are just the images. Feel free to change this.
     #steering_angle = process(model,transformed_image_array) #float(model(transformed_image_array)) #, batch_size=1))
