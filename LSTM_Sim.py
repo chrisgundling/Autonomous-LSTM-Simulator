@@ -1,13 +1,13 @@
 # ----------------------------------------------------------------------------------
-# Project 3 - Cloning Komanda - komanda.py
+# Cloning Komanda - LSTM_Sim.py
 # ----------------------------------------------------------------------------------
 
 '''
-This script is setup to train 1st place Illia's Udacity Challenge #2 RNN solution
-with simulator data. The first goal is to test the LSTM/RNN method in the simulator.
-The model is setup to predict steering, brake and throttle.
+This script is setup to train a similar solution to 1st place Illia's 
+Udacity Challenge #2 RNN solution with simulator data. The CNN has been
+modified to a NVIDIA type. The model is setup to predict steering, brake and throttle.
 
-Data augmentation techniques have been added to increase the training data size,
+Data augmentation techniques are being added to increase the training data size,
 improve the model's performance and to generalize the model's capabilities.
 
 The steps are: 
